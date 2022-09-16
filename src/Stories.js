@@ -1,5 +1,5 @@
-function Dados(props){
-return(        
+function DadosStories(props){
+return(      
     <div class="story">
         <div class="imagem">
             <img src={props.imagem} />
@@ -12,7 +12,7 @@ return(
 }
 
 export default function Stories(){
-    const dados = [
+    const dadosUsuario = [
         {imagem:"./img/9gag.svg", usuario:"9gag"},
         {imagem:"./img/meowed.svg", usuario:"meowed"},
         {imagem:"./img/barked.svg", usuario:"barked"},
@@ -23,9 +23,9 @@ export default function Stories(){
         {imagem:"./img/memeriagourmet.svg", usuario:"memeriagourmet"}
     ];
 
-    return(    
+    return(
     <div class="stories">
-        {dados.map((d) => <Dados imagem={d.imagem} usuario={d.usuario}/>)};  
+        {dadosUsuario.map((d) => <DadosStories imagem={d.imagem} usuario={d.usuario}/>)};
 
         <div class="setinha">
             <ion-icon name="chevron-forward-circle"></ion-icon>
