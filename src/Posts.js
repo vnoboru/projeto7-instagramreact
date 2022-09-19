@@ -4,13 +4,13 @@ function DadosPost(props) {
   const [like, setLike] = React.useState("heart-outline");
   const [cor, setCor] = React.useState("");
   const [salvar, setSalvar] = React.useState("bookmark-outline");
-  const [contar, setContar] = React.useState(props.number);
+  const [contar, setContar] = React.useState(parseFloat(props.number).toFixed(3));
 
   function colocarLike() {
     if (like === "heart-outline") {
       setLike("heart");
       setCor("cor");
-      setContar(props.number + 1);
+      setContar(props.number + parseFloat(0.001));
     } else {
       setLike("heart-outline");
       setCor("");
@@ -58,7 +58,7 @@ function DadosPost(props) {
           <img src="./img/respondeai.svg" />
           <div class="texto">
             Curtido por <strong>{props.text}</strong> e
-            <strong> outras {contar} pessoas</strong>
+            <strong> outras {parseFloat(contar).toFixed(3)} pessoas</strong>
           </div>
         </div>
       </div>
@@ -72,7 +72,7 @@ export default function Posts() {
       usuario: "meowed",
       conteudo: "./img/gato-telefone.svg",
       text: "respondeai",
-      number: 101523,
+      number: 101.523,
     },
 
     {
@@ -80,7 +80,7 @@ export default function Posts() {
       usuario: "barked",
       conteudo: "./img/dog.svg",
       text: "adorable_animals",
-      number: 99159,
+      number: 99.159,
     },
   ];
 
