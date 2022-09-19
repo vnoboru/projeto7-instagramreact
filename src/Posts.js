@@ -1,4 +1,31 @@
+import React from "react";
+
 function DadosPost(props) {
+  const [like, setLike] = React.useState("heart-outline");
+  const [cor, setCor] = React.useState("");
+  const [salvar, setSalvar] = React.useState("bookmark-outline");
+  const [contar, setContar] = React.useState(props.number);
+
+  function colocarLike() {
+    if (like === "heart-outline") {
+      setLike("heart");
+      setCor("cor");
+      setContar(props.number + 1);
+    } else {
+      setLike("heart-outline");
+      setCor("");
+      setContar(props.number);
+    }
+  }
+
+  function salvarPost() {
+    if (salvar === "bookmark-outline") {
+      setSalvar("bookmark");
+    } else {
+      setSalvar("bookmark-outline");
+    }
+  }
+
   return (
     <div class="post">
       <div class="topo">
@@ -11,19 +38,19 @@ function DadosPost(props) {
         </div>
       </div>
 
-      <div class="conteudo">
+      <div class="conteudo" onClick={colocarLike}>
         <img src={props.conteudo} />
       </div>
 
       <div class="fundo">
         <div class="acoes">
           <div>
-            <ion-icon name="heart-outline"></ion-icon>
+            <ion-icon name={like} onClick={colocarLike} class={cor}></ion-icon>
             <ion-icon name="chatbubble-outline"></ion-icon>
             <ion-icon name="paper-plane-outline"></ion-icon>
           </div>
           <div>
-            <ion-icon name="bookmark-outline"></ion-icon>
+            <ion-icon name={salvar} onClick={salvarPost}></ion-icon>
           </div>
         </div>
 
@@ -31,7 +58,7 @@ function DadosPost(props) {
           <img src="./img/respondeai.svg" />
           <div class="texto">
             Curtido por <strong>{props.text}</strong> e
-            <strong> outras {props.number} pessoas</strong>
+            <strong> outras {contar} pessoas</strong>
           </div>
         </div>
       </div>
@@ -45,7 +72,7 @@ export default function Posts() {
       usuario: "meowed",
       conteudo: "./img/gato-telefone.svg",
       text: "respondeai",
-      number: "101.523",
+      number: 101523,
     },
 
     {
@@ -53,7 +80,7 @@ export default function Posts() {
       usuario: "barked",
       conteudo: "./img/dog.svg",
       text: "adorable_animals",
-      number: "99.159",
+      number: 99159,
     },
   ];
 

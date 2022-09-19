@@ -325,6 +325,10 @@ body {
   }
 }
 
+.cor{
+  color: red;
+}
+
 @media (max-width: 614px) {
   .corpo {
     margin-top: 0;
